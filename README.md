@@ -52,10 +52,10 @@ The java code below uses a base64 util class from android SDK but you can replac
   
   //Kotlin(Android)
   var publickey = applicationContext.resources.getString(R.string.public_key)
-        var crenc = Crypto().encrypt("TestPassword", publickey)
-        Log.e("TAG", crenc)
-        var crdec = Crypto().decrypt(crenc, publickey)Hel
-        Log.e("TAG", crdec)
+        var enc = Crypto().encrypt("TestPassword", publickey)
+        Log.e("TAG", enc)
+        var dec = Crypto().decrypt(enc, publickey)
+        Log.e("TAG", dec)
 
 ************************************************************************
 C# (Code)
