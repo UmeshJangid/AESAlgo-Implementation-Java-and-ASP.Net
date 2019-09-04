@@ -7,4 +7,67 @@ AES was developed by two Belgian cryptographers, Vincent Rijmen and Jan Daemen. 
 # Use:
 Advanced Encryption Standard (AES) is one of the symmetric encryption algorithms that allows both parties, sender and receiver, to use the same key to encrypt and decrypt data.
 This article demonstrates how to use AesManaged class to apply  an AES algorithm to encrypt and decrypt data in .NET C# and Java
-The java code below uses a base64 util class from android SDK but you can replace it like with one from *apache commons*
+The java code below uses a base64 util class from android SDK but you can replace it like with one from ***apache commons***
+
+## Usage(Java/Kotlin and C#)
+
+```java
+************************************************************************
+  //Java
+  
+    //Encryption
+     String publickey = "Publickey";
+        String encryptText = null;
+        try {
+            encryptText = new Crypto().encrypt("TestPassword", publickey);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        }
+        println(encryptText);
+        
+        //Decryption
+        
+        String decryptText = null;
+        try {
+            decryptText = new Crypto().decrypt(encryptText, publickey);
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        println(decryptText);
+  
+  
+  //Kotlin(Android)
+  var publickey = applicationContext.resources.getString(R.string.public_key)
+        var crenc = Crypto().encrypt("TestPassword", publickey)
+        Log.e("TAG", crenc)
+        var crdec = Crypto().decrypt(crenc, publickey)Hel
+        Log.e("TAG", crdec)
+
+************************************************************************
+C# (Code)
+ ***********************************************************************
+ string enc = new Crypto().Encrypt("TestPassword", "YourPublicKey");
+ Console.WriteLine(enc);
+            
+ string dec = new Crypto().Decrypt(enc, "YourPublicKey");
+ Console.WriteLine(dec);
+            
+ ************************************************************************
+
+
+
+
